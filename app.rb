@@ -35,4 +35,11 @@ sleep 2
 
 enable :sessions 
 
+session = cluster.connect('users')
+
+session.execute("SELECT * FROM system_schema.columns WHERE keyspace_name='users'") do |table| 
+    puts "#{table}" 
+    sleep 2
+end 
+
 
